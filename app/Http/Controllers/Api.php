@@ -34,8 +34,8 @@ class Api extends Controller
         
         $cityList = json_decode($response->get());
         dd($cityList);
-        if(isset($cityList)->cities){
-            foreach ($cityList->cities as $cityObj) {
+        if(isset($cityList['cities'])){
+            foreach ($cityList['cities'] as $cityObj) {
                 $city = new City;
                 foreach ($cityObj as $key => $item) {
                     $city->{$key} = $item;
