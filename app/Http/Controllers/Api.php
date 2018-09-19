@@ -31,16 +31,22 @@ class Api extends Controller
         }
 
         City::truncate();
-
-        foreach (json_decode($response->get())->cities as $cityObj) {
-            $city = new City;
-            foreach ($cityObj as $key => $item) {
-                $city->{$key} = $item;
+        
+        $cityList = json_decode($response->get());
+        dd($cityList);
+        if(isset($cityList)->cities){
+            foreach ($cityList->cities as $cityObj) {
+                $city = new City;
+                foreach ($cityObj as $key => $item) {
+                    $city->{$key} = $item;
+                }
+                $city->save();
             }
-            $city->save();
-        }
 
-        return response('OK', 200);
+            return response('OK', 200);
+        } else {
+            return response(dd($cityList);, 500);
+        }
     }
 
     /**
