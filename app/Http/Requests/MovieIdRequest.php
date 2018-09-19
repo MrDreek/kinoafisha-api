@@ -24,15 +24,15 @@ class MovieIdRequest extends FormRequest
     public function rules()
     {
         return [
-            'movieId' => 'required|integer'
+            'movie_id' => 'required|integer'
         ];
     }
 
     public function messages()
     {
         return [
-            'movieId.required' => 'Требуется указать id фильма',
-            'movieId.integer' => 'id фильма должен быть числом'
+            'movie_id.required' => 'Требуется указать id фильма',
+            'movie_id.integer' => 'id фильма должен быть числом'
         ];
     }
 }

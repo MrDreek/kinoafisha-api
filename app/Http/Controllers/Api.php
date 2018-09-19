@@ -66,7 +66,7 @@ class Api extends Controller
     {
         $key = config('app.key_kinoafisha');
 
-        $url = "https://api.kinoafisha.info/export/schedule?api_key=$key&city=" . $request->code . ($request->date_end !== null ? '&date_end=' . $request->date_end : '');
+        $url = "https://api.kinoafisha.info/export/schedule?api_key=$key&city=" . $request->city . ($request->date_end !== null ? '&date_end=' . $request->date_end : '');
 
         $response = Curl::to($url);
 
@@ -99,7 +99,7 @@ class Api extends Controller
     {
         $key = config('app.key_kinoafisha');
 
-        $url = 'https://api.kinoafisha.info/export/movie?movie_id=' . $request->movieId ."&api_key=$key";
+        $url = 'https://api.kinoafisha.info/export/movie?movie_id=' . $request->movie_id ."&api_key=$key";
 
         $response = Curl::to($url);
 

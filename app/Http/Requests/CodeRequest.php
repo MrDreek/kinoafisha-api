@@ -32,8 +32,8 @@ class CodeRequest extends FormRequest
     public function messages()
     {
         return [
-            'code.required' => 'Требуется указать код города',
-            'code.integer' => 'Код должен быть числом',
+            'city.required' => 'Требуется указать код города',
+            'city.integer' => 'Код должен быть числом',
             'date_end.date' => 'date_end должен быть Date',
         ];
     }
