@@ -45,7 +45,7 @@ class Api extends Controller
 
             return response('OK', 200);
         } else {
-            return response(dd($cityList);, 500);
+            return response(dd($cityList), 500);
         }
     }
 
