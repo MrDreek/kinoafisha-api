@@ -18,6 +18,9 @@ class Api extends Controller
     public function getCityList()
     {
         $key = config('app.key_kinoafisha');
+        if ($key === null) {
+            return response()->json(['error' => 404, 'message' => 'Ключ не задан'], 404);
+        }
         $url = "https://api.kinoafisha.info/export/cities?api_key=$key";
 
         $response = Curl::to($url);
@@ -65,7 +68,9 @@ class Api extends Controller
     public function getSchedule(CodeRequest $request)
     {
         $key = config('app.key_kinoafisha');
-
+        if ($key === null) {
+            return response()->json(['error' => 404, 'message' => 'Ключ не задан'], 404);
+        }
         $url = "https://api.kinoafisha.info/export/schedule?api_key=$key&city=" . $request->city . ($request->date_end !== null ? '&date_end=' . $request->date_end : '');
 
         $response = Curl::to($url);
@@ -98,8 +103,10 @@ class Api extends Controller
     public function getMovieDetail(MovieIdRequest $request)
     {
         $key = config('app.key_kinoafisha');
-
-        $url = 'https://api.kinoafisha.info/export/movie?movie_id=' . $request->movie_id ."&api_key=$key";
+        if ($key === null) {
+            return response()->json(['error' => 404, 'message' => 'Ключ не задан'], 404);
+        }
+        $url = 'https://api.kinoafisha.info/export/movie?movie_id=' . $request->movie_id . "&api_key=$key";
 
         $response = Curl::to($url);
 
