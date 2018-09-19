@@ -111,7 +111,7 @@ class Api extends Controller
         $response = $response->returnResponseObject()->get();
 
         if ($response->status !== 200) {
-            return response()->json(['error' => $response->status], $response->status);
+            return response()->json(['error' => $response->status, 'content' => $response->content], $response->status);
         }
 
         $schedules = [];
