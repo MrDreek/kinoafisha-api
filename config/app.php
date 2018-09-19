@@ -159,7 +159,6 @@ return [
         /*
          * Package Service Providers...
          */
-        \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Jenssegers\Mongodb\MongodbServiceProvider::class,
         Ixudra\Curl\CurlServiceProvider::class,
 
